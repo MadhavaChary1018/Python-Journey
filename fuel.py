@@ -4,12 +4,14 @@ def main():
 
 def fraction():
     while True:
-        f = input("enter fuel fraction: ")
-        x,y = f.split(sep="/")
-        if x.isdigit() and y.isdigit() and int(y)>=int(x)>=0 and int(y)!=0 :
-            break
-    f = float(x)/float(y)
-    return f
+        try:
+            x,y = input("enter fuel fraction: ").split(sep="/")
+            x = int(x)
+            y = int(y)
+            if y>=x>=0 and y!=0 :
+                return float(x/y)
+        except ValueError:
+            pass
 
 def fuel(v):
     x = v*100
